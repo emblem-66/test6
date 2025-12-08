@@ -2,8 +2,8 @@ FROM scratch AS ctx
 
 COPY --chmod=755 build.sh /
 
-#FROM quay.io/fedora/fedora-bootc:latest
-FROM quay.io/fedora/fedora-sway-atomic:latest
+FROM quay.io/fedora/fedora-bootc:latest
+#FROM quay.io/fedora/fedora-sway-atomic:latest
 
 RUN grep '^OSTREE_VERSION=' /usr/lib/os-release
 
