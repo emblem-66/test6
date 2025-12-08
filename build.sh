@@ -45,8 +45,6 @@ dnf install -y \
     --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
     terra-release \
 
-dnf install -y \
-    helium-browser-bin \
 
 dnf install -y \
     ibm-plex* \
@@ -55,17 +53,142 @@ dnf install -y \
     cockpit-podman \
 
 dnf install -y \
+    hyprland hypridle hyprlock hyprpaper hyprpanel hyprutils \
     kitty \
     pcmanfm \
     wofi \
 
-dnf remove -y \
-    firefox* \
+
 
 systemctl enable cockpit.socket
 
 rpm -qa | sort
 
 
+# hardware/drivers
+dnf install -y \
+    kernel-modules-extra \
+    iwlwifi-mvm-firmware \
+    alsa-sof-firmware \
+    blueman \
+    NetworkManager-wifi \
+    NetworkManager-openvpn-gnome \
+    tpm2-pkcs11-tools \
+    tpm2-pkcs11 \
+    tpm2-tools \
+    powertop \
+    wpa_supplicant
 
+# shell tools and development
+dnf install -y \
+    buildah \
+    cyrus-sasl-plain \
+    fpaste \
+    git \
+    glibc-langpack-de \
+    glibc-langpack-en \
+    isync \
+    krb5-workstation \
+    man-db \
+    mtr \
+    mutt  \
+    neovim \
+    nmap-ncat \
+    restic \
+    rsync \
+    strace \
+    syncthing \
+    systemd-container \
+    toolbox \
+    tree \
+    w3m \
+    wget
+
+# desktop plumbing/apps
+dnf install -y \
+    dejavu-sans-fonts \
+    dejavu-serif-fonts \
+    dejavu-sans-mono-fonts \
+    flatpak \
+    fontawesome-fonts \
+    google-noto-emoji-color-fonts \
+    gvfs-mtp \
+    pulseaudio-utils \
+    alsa-plugins-pulseaudio \
+    gstreamer1-plugins-good \
+    gstreamer1-plugins-bad-free \
+    xdg-desktop-portal-gtk \
+    pavucontrol \
+    pcmanfm \
+    nm-applet \
+    nm-connection-editor \
+    eog \
+    evince \
+    rhythmbox \
+    gnome-keyring \
+    pinentry-gnome3 \
+    mate-polkit \
+    lxterminal \
+    gnome-disk-utility \
+    rofimoji
+
+# sway/wayland desktop
+dnf install -y \
+    sway \
+    swayidle \
+    swaylock \
+    kanshi \
+    mako \
+    waybar \
+    slurp \
+    grim \
+    xorg-x11-server-Xwayland \
+    wofi \
+    brightnessctl \
+    wl-clipboard
+
+dnf remove -y \
+    NetworkManager-cloud-setup \
+    adcli \
+    avahi \
+    btrfs-progs \
+    chrony \
+    cloud-utils-growpart \
+    fwupd \
+    libosinfo \
+    lvm2 \
+    lvm2-libs \
+    nfs-utils \
+    nilfs-utils \
+    nodejs \
+    passim-libs \
+    quota-nls \
+    rpcbind \
+    sssd-common \
+    sssd-nfs-idmap \
+    sos \
+    tracker \
+    tracker-miners \
+    udftools \
+    vim-data \
+    vim-minimal \
+    xdg-desktop-portal-wlr \
+    zram-generator
+
+dnf install -y \
+    helium-browser-bin \
+
+dnf install -y \
+    tuned \
+
+rpm -qa 'qemu-user-static*' | xargs dnf remove -y
+
+authselect enable-feature with-systemd-homed
+
+rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
+
+cp -a --verbose /etc/systemd/system /etc/systemd/user /usr/lib/systemd/
+rm -r /etc/systemd/system /etc/systemd/user
+
+rm --verbose /etc/*-
 
