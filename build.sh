@@ -6,9 +6,9 @@ dnf install -y \
     adw-gtk3-theme \
 
 dnf remove -y \
-    google-droid-sans-fonts \
+    google* \
 
 dnf remove -y \
-    default-fonts \
+    default-fonts* \
 
 rpm -qa | sort
