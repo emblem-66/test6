@@ -51,7 +51,8 @@ dnf install -y \
 dnf install -y \
     ibm-plex* \
     adw-gtk3-theme \
-    podman \
+    cockpit \
+    cockpit-podman \
 
 dnf install -y \
     kitty \
