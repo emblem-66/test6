@@ -5,7 +5,7 @@ COPY --chmod=755 build.sh /
 FROM quay.io/fedora/fedora-bootc:latest
 #FROM quay.io/fedora/fedora-sway-atomic:latest
 
-RUN grep '^OSTREE_VERSION=' /usr/lib/os-release
+#RUN grep '^OSTREE_VERSION=' /usr/lib/os-release
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
