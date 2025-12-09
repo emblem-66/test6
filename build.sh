@@ -72,10 +72,10 @@ dnf install -y \
 
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
-authselect enable-feature with-systemd-homed
+#authselect enable-feature with-systemd-homed
 
 #systemctl enable sddm.service
 #systemctl set-default graphical.target
 
-rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
+#rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
 
