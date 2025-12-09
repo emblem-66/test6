@@ -3,7 +3,7 @@ set -xeuo pipefail
 
 ### Config files
 # Terra
-#curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 # repo - tailscale
 curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
@@ -39,7 +39,7 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainf
 
 #dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
 dnf install -y \
@@ -65,7 +65,6 @@ dnf install -y \
 
 dnf install -y \
     tuned tuned-ppd \
-    sddm \
     blueman \
     pavucontrol alsa-sof-firmware alsa-utils \
     iwl* nm-connection-editor-desktop NetworkManager-wifi \
@@ -75,13 +74,8 @@ rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
 authselect enable-feature with-systemd-homed
 
-systemctl enable sddm.service
-systemctl set-default graphical.target
+#systemctl enable sddm.service
+#systemctl set-default graphical.target
 
 rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
-
-cp -a --verbose /etc/systemd/system /etc/systemd/user /usr/lib/systemd/
-rm -r /etc/systemd/system /etc/systemd/user
-
-rm --verbose /etc/*-
 
