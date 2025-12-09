@@ -68,7 +68,7 @@ dnf install -y \
     sddm \
     blueman \
     pavucontrol alsa-sof-firmware alsa-utils \
-    iwl* nm-manager-editor-desktop NetworkManager-wifi \
+    iwl* nm-connection-editor-desktop NetworkManager-wifi \
     gvfs* \
 
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
