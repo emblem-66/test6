@@ -75,6 +75,9 @@ rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
 authselect enable-feature with-systemd-homed
 
+systemctl enable sddm.service
+systemctl set-default graphical.target
+
 rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
 
 cp -a --verbose /etc/systemd/system /etc/systemd/user /usr/lib/systemd/
