@@ -7,9 +7,9 @@ set -xeuo pipefail
 # repo - tailscale
 curl -sS --create-dirs -o /etc/yum.repos.d/_tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 # repo - morewaita icons
-curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_morewaita.repo https://copr.fedorainfracloud.org/coprs/trixieua/morewaita-icon-theme/repo/fedora-$(rpm -E %fedora)/trixieua-morewaita-icon-theme-fedora-$(rpm -E %fedora).repo
 # repo -ghostty
-curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
+#curl -sS --create-dirs -o /etc/yum.repos.d/_ghostyy.repo https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-$(rpm -E %fedora)/scottames-ghostty-fedora-$(rpm -E %fedora).repo
 # repo - hyprland
 curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
 # niri
@@ -19,31 +19,27 @@ curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainf
 # repo - docker
 #curl -sS --create-dirs -o /etc/yum.repos.d/_docker.repo https://download.docker.com/linux/fedora/docker-ce.repo
 # justfile
-curl -sS --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
+#curl -sS --create-dirs -o /usr/share/just/justfile https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_share_just_justfile
 # systemd - bootc
-curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
-curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer
+#curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.service
+#curl -sS --create-dirs -o /usr/lib/systemd/system/bootc-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_bootc-update.timer
 # systemd - flatpak
-curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service
-curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.service
-curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer
-curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service
+#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-setup.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-setup.service
+#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.service
+#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-update.timer https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-update.timer
+#curl -sS --create-dirs -o /usr/lib/systemd/system/flatpak-packages.service https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/_usr_lib_systemd_system_flatpak-packages.service
 # containers
-curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
-curl -sS --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
-curl -sS --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
-curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/jellyfin.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/jellyfin.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/navidrome.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/navidrome.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/audiobookshelf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/audiobookshelf.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/syncthing.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/syncthing.container
 curl -sS --create-dirs -o /usr/share/containers/systemd/stash.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stash.container
-curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
-curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
+#curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
-dnf install -y \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-dnf install -y \
-    --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
-    terra-release \
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
 dnf install -y \
@@ -53,133 +49,27 @@ dnf install -y \
     cockpit-podman \
 
 dnf install -y \
-    hyprland hypridle hyprlock hyprpaper hyprutils \
+    hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagent \
     kitty \
     pcmanfm \
     wofi \
-
-
 
 systemctl enable cockpit.socket
 
 rpm -qa | sort
 
 
-# hardware/drivers
-dnf install -y \
-    kernel-modules-extra \
-    iwlwifi-mvm-firmware \
-    alsa-sof-firmware \
-    blueman \
-    NetworkManager-wifi \
-    NetworkManager-openvpn-gnome \
-    tpm2-pkcs11-tools \
-    tpm2-pkcs11 \
-    tpm2-tools \
-    powertop \
-    wpa_supplicant
-
-# shell tools and development
-dnf install -y \
-    buildah \
-    cyrus-sasl-plain \
-    fpaste \
-    git \
-    glibc-langpack-de \
-    glibc-langpack-en \
-    isync \
-    krb5-workstation \
-    man-db \
-    mtr \
-    mutt  \
-    neovim \
-    nmap-ncat \
-    restic \
-    rsync \
-    strace \
-    syncthing \
-    systemd-container \
-    toolbox \
-    tree \
-    w3m \
-    wget
-
-# desktop plumbing/apps
-dnf install -y \
-    dejavu-sans-fonts \
-    dejavu-serif-fonts \
-    dejavu-sans-mono-fonts \
-    flatpak \
-    fontawesome-fonts \
-    google-noto-emoji-color-fonts \
-    gvfs-mtp \
-    pulseaudio-utils \
-    alsa-plugins-pulseaudio \
-    gstreamer1-plugins-good \
-    gstreamer1-plugins-bad-free \
-    xdg-desktop-portal-gtk \
-    pavucontrol \
-    pcmanfm \
-    nm-applet \
-    nm-connection-editor \
-    eog \
-    evince \
-    rhythmbox \
-    gnome-keyring \
-    pinentry-gnome3 \
-    mate-polkit \
-    lxterminal \
-    gnome-disk-utility \
-    rofimoji
-
-# sway/wayland desktop
-dnf install -y \
-    sway \
-    swayidle \
-    swaylock \
-    kanshi \
-    mako \
-    waybar \
-    slurp \
-    grim \
-    xorg-x11-server-Xwayland \
-    wofi \
-    brightnessctl \
-    wl-clipboard
-
-dnf remove -y \
-    NetworkManager-cloud-setup \
-    adcli \
-    avahi \
-    btrfs-progs \
-    chrony \
-    cloud-utils-growpart \
-    fwupd \
-    libosinfo \
-    lvm2 \
-    lvm2-libs \
-    nfs-utils \
-    nilfs-utils \
-    nodejs \
-    passim-libs \
-    quota-nls \
-    rpcbind \
-    sssd-common \
-    sssd-nfs-idmap \
-    sos \
-    tracker \
-    tracker-miners \
-    udftools \
-    vim-data \
-    vim-minimal \
-    xdg-desktop-portal-wlr \
-    zram-generator
 
 dnf install -y \
     helium-browser-bin \
 
 dnf install -y \
-    tuned \
+    tuned tuned-ppd \
+    sddm \
+    blueman \
+    pavucontrol alsa-sof-firmware alsa-utils \
+    iwl* nm-manager-editor-desktop NetworkManager-wifi \
+    gvfs* \
 
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
