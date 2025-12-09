@@ -53,7 +53,7 @@ dnf install -y \
     cockpit-podman \
 
 dnf install -y \
-    hyprland hypridle hyprlock hyprpaper hyprpanel hyprutils \
+    hyprland hypridle hyprlock hyprpaper hyprutils \
     kitty \
     pcmanfm \
     wofi \
