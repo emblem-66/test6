@@ -70,7 +70,7 @@ dnf install -y \
     pavucontrol alsa-sof-firmware alsa-utils \
     iwl* nm-connection-editor-desktop NetworkManager-wifi \
     gvfs* \
-    greetd
+    greetd \
 
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
