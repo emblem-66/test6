@@ -62,6 +62,7 @@ rpm -qa | sort
 
 dnf install -y \
     helium-browser-bin \
+    tailscale \
 
 dnf install -y \
     tuned tuned-ppd \
@@ -71,6 +72,10 @@ dnf install -y \
     gvfs* \
 
 rpm -qa 'qemu-user-static*' | xargs dnf remove -y
+
+
+systemctl --quiet enable tailscaled.service
+systemctl --quiet enable sshd.service
 
 #authselect enable-feature with-systemd-homed
 
