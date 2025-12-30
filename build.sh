@@ -58,7 +58,9 @@ systemctl enable cockpit.socket
 
 rpm -qa | sort
 
+dnf install -y steam
 
+dnf search mesa
 
 dnf install -y \
     helium-browser-bin \
