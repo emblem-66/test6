@@ -62,6 +62,8 @@ dnf install -y steam
 
 dnf search mesa
 
+dnf install -y terra-release-mesa
+
 dnf install -y \
     helium-browser-bin \
     tailscale \
