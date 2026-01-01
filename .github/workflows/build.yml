@@ -16,5 +16,32 @@ jobs:
       uses: actions/checkout@v4
     - name: build
       run: podman build -f Containerfile --disable-compression=false -t ${{ env.tag }} .
+
+    - name: Run Rechunker
+      id: rechunk
+      uses: hhd-dev/rechunk@5fbe1d3a639615d2548d83bc888360de6267b1a2 # v1.2.4
+      with:
+        rechunk: 'ghcr.io/hhd-dev/rechunk:v1.2.4'
+        ref: "${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+        prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+        version: "${{ env.DEFAULT_TAG }}"
+        labels: |
+          io.artifacthub.package.readme-url=https://raw.githubusercontent.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/${{ github.sha }}/README.md
+          org.opencontainers.image.created=${{ steps.date.outputs.date }}
+          org.opencontainers.image.description=${{ env.IMAGE_DESC }}
+          org.opencontainers.image.documentation=https://raw.githubusercontent.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/${{ github.sha }}/README.md
+          org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/blob/${{ github.sha }}/Containerfile
+          org.opencontainers.image.title=${{ env.IMAGE_NAME }}
+          org.opencontainers.image.url=https://github.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/tree/${{ github.sha }}
+          org.opencontainers.image.vendor=${{ github.repository_owner }}
+          org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}
+          io.artifacthub.package.deprecated=false
+          io.artifacthub.package.keywords=${{ env.IMAGE_KEYWORDS }}
+          io.artifacthub.package.license=Apache-2.0
+          io.artifacthub.package.logo-url=${{ env.IMAGE_LOGO_URL }}
+          io.artifacthub.package.prerelease=false
+          containers.bootc=1
+
     - name: push
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
+
