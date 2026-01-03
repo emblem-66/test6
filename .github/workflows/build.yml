@@ -5,6 +5,7 @@ on:
     - cron: "0 0 * * *"
 env:
   tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+  name: ${{ github.event.repository.name }}:latest
 jobs: 
   build:
     runs-on: ubuntu-latest
@@ -21,10 +22,10 @@ jobs:
         sudo podman run --rm --privileged \
           -v /var/lib/containers:/var/lib/containers \
           --entrypoint /usr/libexec/bootc-base-imagectl \
-          "localhost/${{ env.tag }}" \
+          "localhost/${{ env.name }}" \
           rechunk --max-layers 96 \
-          "localhost/${{ env.tag }}" \
-          "localhost/${{ env.tag }}"
+          "localhost/${{ env.name }}" \
+          "localhost/${{ env.name }}"
     - name: push
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
 
