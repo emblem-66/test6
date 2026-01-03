@@ -6,8 +6,8 @@ on:
 env:
   tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
   name: ${{ github.event.repository.name }}:latest
-  IMAGE_NAME: "${{ github.event.repository.name }}"
-  DEFAULT_TAG: "latest"
+  IMAGE_NAME: ${{ github.event.repository.name }}
+  DEFAULT_TAG: latest
 jobs: 
   build:
     runs-on: ubuntu-latest
