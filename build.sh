@@ -2,7 +2,7 @@
 
 set -xeuo pipefail
 
-
+rpm -qa | sort
 
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
