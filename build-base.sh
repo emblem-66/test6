@@ -93,7 +93,6 @@ dnf -y install \
   realtek-firmware \
   rsync \
   spice-vdagent \
-  steam-devices \
   switcheroo-control \
   system-config-printer-libs \
   system-config-printer-udev \
