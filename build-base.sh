@@ -50,7 +50,6 @@ dnf -y install \
   cifs-utils \
   cups \
   cups-pk-helper \
-  dymo-cups-drivers \
   firewalld \
   fprintd \
   fprintd-pam \
