@@ -4,10 +4,6 @@ set -xeuo pipefail
 
 rpm -qa | sort
 
-
-
-
-
 ### Config files
 # Terra
 #curl -sS --create-dirs -o /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
@@ -55,15 +51,15 @@ dnf install -y \
     cockpit \
     cockpit-podman \
 
+systemctl enable cockpit.socket
+
+dnf install -y mangowc
+
 dnf install -y \
     hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagent \
     kitty \
     pcmanfm \
     wofi \
-
-systemctl enable cockpit.socket
-
-rpm -qa | sort
 
 dnf install -y steam
 
@@ -80,7 +76,6 @@ dnf install -y \
     greetd
 
 #rpm -qa 'qemu-user-static*' | xargs dnf remove -y
-
 
 systemctl --quiet enable tailscaled.service
 systemctl --quiet enable sshd.service
