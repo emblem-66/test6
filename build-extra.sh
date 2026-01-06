@@ -69,9 +69,7 @@ dnf install -y steam
 
 dnf install -y terra-release-mesa
 
-dnf install -y \
-    helium-browser-bin \
-    tailscale \
+dnf install -y helium-browser-bin 
 
 dnf install -y \
     tuned tuned-ppd \
@@ -79,7 +77,7 @@ dnf install -y \
     pavucontrol alsa-sof-firmware alsa-utils \
     iwl* nm-connection-editor-desktop NetworkManager-wifi \
     gvfs* \
-    greetd \
+    greetd
 
 #rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
