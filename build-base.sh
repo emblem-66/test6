@@ -14,6 +14,7 @@ dnf config-manager setopt tailscale-stable.enabled=0
 dnf -y install --enablerepo='tailscale-stable' tailscale
 
 systemctl enable tailscaled
+systemctl enable sshd.service
 
 dnf -y remove \
   console-login-helper-messages \
