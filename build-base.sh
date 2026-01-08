@@ -2,7 +2,14 @@
 
 set -xeuo pipefail
 
+echo "::group:: ===$(basename "$0")==="
+
 rpm -qa | sort
+
+echo "::endgroup::"
+
+echo "::group:: ===$(basename "$0")==="
+
 
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
@@ -115,5 +122,6 @@ systemctl enable firewalld
 
 systemctl enable greetd
 
+echo "::endgroup::"
 
 
