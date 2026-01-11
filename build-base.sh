@@ -19,6 +19,8 @@ dnf -y install --enablerepo='tailscale-stable' tailscale
 systemctl enable tailscaled
 systemctl enable sshd.service
 
+dnf install -y just
+
 dnf -y remove \
   console-login-helper-messages \
   chrony \
