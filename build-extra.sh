@@ -40,9 +40,9 @@ rpm -qa | sort
 #curl -sS --create-dirs -o /usr/share/containers/systemd/stirlingpdf.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/stirlingpdf.container
 #curl -sS --create-dirs -o /usr/share/containers/systemd/qbittorent.container https://raw.githubusercontent.com/emblem-66/Linux-Stuff/refs/heads/main/containers/qbittorent.container
 
-dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+#dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+#dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
 dnf install -y \
@@ -55,7 +55,7 @@ systemctl enable cockpit.socket
 
 dnf install -y waybar
 
-dnf install -y mangowc
+#dnf install -y mangowc
 
 #dnf install -y hyprland
 
@@ -66,11 +66,11 @@ dnf install -y \ # hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagen
     pcmanfm \
     wofi \
 
-dnf install -y steam
+#dnf install -y steam
 
-dnf install -y terra-release-mesa
+#dnf install -y terra-release-mesa
 
-dnf install -y helium-browser-bin 
+#dnf install -y helium-browser-bin 
 
 dnf install -y \
     tuned tuned-ppd \
@@ -82,8 +82,8 @@ dnf install -y \
 
 #rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
-systemctl --quiet enable tailscaled.service
-systemctl --quiet enable sshd.service
+#systemctl --quiet enable tailscaled.service
+#systemctl --quiet enable sshd.service
 
 #authselect enable-feature with-systemd-homed
 
@@ -91,3 +91,64 @@ systemctl --quiet enable sshd.service
 #systemctl set-default graphical.target
 
 #rm /usr/lib/systemd/system/default.target.wants/bootc-fetch-apply-updates.timer
+
+
+
+
+
+
+
+### DMS
+#curl -sS --create-dirs -o /etc/yum.repos.d/_dms.repo https://copr.fedorainfracloud.org/coprs/avengemedia/dms/repo/fedora-$(rpm -E %fedora)/avengemedia-dms-fedora-$(rpm -E %fedora).repo
+dnf copr enable -y avengemedia/dms
+dnf install -y \
+    --setopt=install_weak_deps=False \
+    dms \
+    dms-greeter \
+
+
+#curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
+dnf copr enable -y sdegler/hyprland
+
+
+### Niri
+dnf copr enable -y avengemedia/dms
+dnf copr enable -y yalter/niri
+dnf install -y niri
+
+
+
+### Utils
+dnf install -y \
+    kitty \
+    wofi \
+    waybar \
+    waypaper \
+    pavucontrol \
+    blueman \
+    mako \
+    wlogout \
+    waybar \
+    swww \
+    grim \
+
+dnf install -y hyprland
+
+dnf install -y \
+    hyprutils \
+    hyprland-guiutils \
+    hyprland-autoname-workspaces \
+    hyprpaper \
+    hyprlock \
+    hypridle \
+    hyprlauncher \
+    hyprnome \
+    hyprshot \
+    hyprsysteminfo \
+    hyprwire \
+    hyprland-plugins \
+    hyprshot \
+    hyprland-qt-support \
+    hyprcursor \
+
+
