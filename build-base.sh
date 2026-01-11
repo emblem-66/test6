@@ -118,4 +118,4 @@ dnf -y install \
 systemctl enable auditd
 systemctl enable firewalld
 
-systemctl enable greetd
+#systemctl enable greetd
