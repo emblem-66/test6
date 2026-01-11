@@ -28,7 +28,7 @@ dnf -y remove \
   qemu-user-static* \
   toolbox
 
-dnf -y install greetd
+#dnf -y install greetd
 
 # These were manually picked out from a Bluefin comparison with `rpm -qa --qf="%{NAME}\n" `
 dnf -y install \
