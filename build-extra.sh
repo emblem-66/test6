@@ -45,13 +45,13 @@ rpm -qa | sort
 #dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 
-dnf install -y \
-    ibm-plex* \
-    adw-gtk3-theme \
-    cockpit \
-    cockpit-podman \
+#dnf install -y \
+#    ibm-plex* \
+#    adw-gtk3-theme \
+#    cockpit \
+#    cockpit-podman \
 
-systemctl enable cockpit.socket
+#systemctl enable cockpit.socket
 
 dnf install -y waybar
 
@@ -61,10 +61,10 @@ dnf install -y waybar
 
 #dnf install -y hyprland-devel
 
-dnf install -y \ # hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagent \
-    kitty \
-    pcmanfm \
-    wofi \
+#dnf install -y \ # hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagent \
+#    kitty \
+#    pcmanfm \
+#    wofi \
 
 #dnf install -y steam
 
@@ -72,13 +72,13 @@ dnf install -y \ # hyprland hypridle hyprlock hyprpaper hyprutils hyprpolkitagen
 
 #dnf install -y helium-browser-bin 
 
-dnf install -y \
-    tuned tuned-ppd \
-    blueman \
-    pavucontrol alsa-sof-firmware alsa-utils \
-    iwl* nm-connection-editor-desktop NetworkManager-wifi \
-    gvfs* \
-    greetd
+#dnf install -y \
+#    tuned tuned-ppd \
+#    blueman \
+#    pavucontrol alsa-sof-firmware alsa-utils \
+#    iwl* nm-connection-editor-desktop NetworkManager-wifi \
+#    gvfs* \
+#    greetd
 
 #rpm -qa 'qemu-user-static*' | xargs dnf remove -y
 
@@ -108,47 +108,44 @@ dnf install -y \
 
 
 #curl -sS --create-dirs -o /etc/yum.repos.d/_hyprland.repo https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-$(rpm -E %fedora)/sdegler-hyprland-fedora-$(rpm -E %fedora).repo
-dnf copr enable -y sdegler/hyprland
+#dnf copr enable -y sdegler/hyprland
 
 
 ### Niri
-dnf copr enable -y avengemedia/dms
 dnf copr enable -y yalter/niri
 dnf install -y niri
 
 
 
 ### Utils
-dnf install -y \
-    kitty \
-    wofi \
-    waybar \
-    waypaper \
-    pavucontrol \
-    blueman \
-    mako \
-    wlogout \
-    waybar \
-    swww \
-    grim \
+#dnf install -y \
+#    kitty \
+#    wofi \
+#    waybar \
+#    waypaper \
+#    pavucontrol \
+#    blueman \
+#    mako \
+#    wlogout \
+#    waybar \
+#    swww \
+#    grim \
 
-dnf install -y hyprland
+#dnf install -y hyprland
 
-dnf install -y \
-    hyprutils \
-    hyprland-guiutils \
-    hyprland-autoname-workspaces \
-    hyprpaper \
-    hyprlock \
-    hypridle \
-    hyprlauncher \
-    hyprnome \
-    hyprshot \
-    hyprsysteminfo \
-    hyprwire \
-    hyprland-plugins \
-    hyprshot \
-    hyprland-qt-support \
-    hyprcursor \
-
-
+#dnf install -y \
+#    hyprutils \
+#    hyprland-guiutils \
+#    hyprland-autoname-workspaces \
+#    hyprpaper \
+#    hyprlock \
+#    hypridle \
+#    hyprlauncher \
+#    hyprnome \
+#    hyprshot \
+#    hyprsysteminfo \
+#    hyprwire \
+#    hyprland-plugins \
+#    hyprshot \
+#    hyprland-qt-support \
+#    hyprcursor \
