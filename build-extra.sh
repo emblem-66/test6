@@ -115,7 +115,8 @@ dnf install -y \
 dnf copr enable -y yalter/niri
 dnf install -y niri
 
-dms greeter enable                                                     
+systemctl enable greetd
+systemctl set-default graphical.target
 
 ### Utils
 #dnf install -y \
