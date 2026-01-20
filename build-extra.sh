@@ -115,7 +115,7 @@ dnf install -y \
 dnf copr enable -y yalter/niri
 dnf install -y niri
 
-
+dms greeter enable                                                     
 
 ### Utils
 #dnf install -y \
