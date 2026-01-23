@@ -6,11 +6,13 @@ echo "::group::****"
 trap 'echo "::endgroup::"' EXIT
 
 #
-dnf -y install 'dnf5-command(config-manager)'
+dnf install -y 'dnf5-command(config-manager)'
+# Debloat
+dnf remove -y qemu-user-static*
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
-dnf -y install --enablerepo='tailscale-stable' tailscale
+dnf install -y --enablerepo='tailscale-stable' tailscale
 systemctl enable tailscaled
 systemctl enable sshd.service
 # Just
