@@ -3,6 +3,7 @@ FROM scratch AS ctx
 COPY --chmod=755 build-base.sh /
 COPY --chmod=755 build-extra.sh /
 COPY --chmod=755 build-test.sh /
+#COPY --chmod=755 config.toml /etc/greetd/config.toml
 
 FROM quay.io/fedora/fedora-bootc:latest
 
