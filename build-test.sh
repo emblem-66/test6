@@ -27,11 +27,13 @@ dnf install -y \
     danksearch dgop \
     material-symbols-fonts \
     adw-gtk3-theme
+# 
+dnf install -y nautilus
 # Flatpak
 dnf install -y flatpak
 # Cockpit
 dnf install -y cockpit
 systemctl enable cockpit
-# 
+
 #systemctl enable auditd
 #systemctl enable firewalld
