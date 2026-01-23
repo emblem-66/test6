@@ -8,7 +8,7 @@ trap 'echo "::endgroup::"' EXIT
 #
 dnf install -y 'dnf5-command(config-manager)'
 # Debloat
-dnf remove -y qemu-user-static*
+dnf remove -y qemu-user-static* sssd*
 # Tailscale
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
@@ -17,13 +17,21 @@ systemctl enable tailscaled
 systemctl enable sshd.service
 # Just
 dnf install -y just
-# Niri
+# Niri & DMS
 dnf copr enable -y yalter/niri
-dnf install -y niri niri-settings
-# DMS
 dnf copr enable -y avengemedia/dms
 dnf copr enable -y avengemedia/danklinux
-dnf install -y dms dms-greeter
-dnf install -y danksearch dgop material-symbols-fonts
+dnf install -y \
+    niri \
+    dms dms-greeter \
+    danksearch dgop \
+    material-symbols-fonts \
+    adw-gtk3-theme
 # Flatpak
-dnf install -y flatpak 
+dnf install -y flatpak
+# Cockpit
+dnf install -y cockpit
+systemctl enable cockpit
+# 
+systemctl enable auditd
+systemctl enable firewalld
