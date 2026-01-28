@@ -36,4 +36,4 @@ dnf install -y cockpit
 systemctl enable cockpit
 
 #systemctl enable auditd
-#systemctl enable firewalld
+systemctl enable firewalld
