@@ -36,7 +36,7 @@ dnf install -y cockpit
 systemctl enable cockpit.socket
 # Firewall
 dnf install -y firewalld
-systemctl enable firewalld
+systemctl enable firewalld.service
 # Greetd
 #systemctl enable greetd
 #systemctl set-default graphical.target
