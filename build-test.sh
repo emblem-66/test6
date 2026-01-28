@@ -35,6 +35,7 @@ dnf install -y flatpak
 dnf install -y cockpit
 systemctl enable cockpit.socket
 # Firewall
+dnf install -y firewalld
 systemctl enable firewalld
 # Greetd
 #systemctl enable greetd
