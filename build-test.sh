@@ -33,7 +33,7 @@ dnf install -y nautilus
 dnf install -y flatpak
 # Cockpit
 dnf install -y cockpit
-systemctl enable cockpit
+systemctl enable cockpit.socket
 # Firewall
 systemctl enable firewalld
 # Greetd
