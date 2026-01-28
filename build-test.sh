@@ -34,6 +34,5 @@ dnf install -y flatpak
 # Cockpit
 dnf install -y cockpit
 systemctl enable cockpit
-
-#systemctl enable auditd
+# Firewall
 systemctl enable firewalld
