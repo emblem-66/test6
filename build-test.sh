@@ -40,3 +40,4 @@ systemctl enable firewalld.service
 # Greetd
 #systemctl enable greetd
 #systemctl set-default graphical.target
+dnf autoremove -y
