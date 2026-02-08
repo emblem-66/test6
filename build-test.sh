@@ -7,6 +7,10 @@ trap 'echo "::endgroup::"' EXIT
 
 #
 dnf install -y 'dnf5-command(config-manager)'
+
+dnf install -y glibc-minimal-langpack
+dnf remove -y glibc-all-langpacks
+
 # Debloat
 dnf remove -y qemu-user-static* sssd*
 # Tailscale
