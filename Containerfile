@@ -31,5 +31,5 @@
 FROM quay.io/fedora/fedora-silverblue:latest
 
 RUN rpm -qa | sort
-RUN dnf remove -y gnome-shell
+RUN dnf remove -y *gnome*
 RUN rpm -qa | sort
