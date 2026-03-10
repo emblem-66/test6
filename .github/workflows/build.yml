@@ -21,6 +21,6 @@ jobs:
       uses: jharmison-redhat/action-bootc-build@v1.0.3
 #    - name: build
 #      run: podman build -f Containerfile --disable-compression=false -t ${{ env.tag }} .
-    - name: push
-      run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
+#    - name: push
+#      run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
 
