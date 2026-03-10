@@ -2,10 +2,6 @@
 
 set -xeuo pipefail
 
-echo "::group::****"
-trap 'echo "::endgroup::"' EXIT
-
-#
 dnf install -y 'dnf5-command(config-manager)'
 
 dnf install -y glibc-minimal-langpack
