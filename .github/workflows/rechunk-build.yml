@@ -1,8 +1,12 @@
-name: Build, rechunk, and push image
+name: build container
+
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
+
+env:
+  tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
 
 jobs:
   build:
@@ -10,11 +14,27 @@ jobs:
     permissions:
       contents: read
       packages: write
-    steps:
-      - uses: actions/checkout@v6
 
-      - name: Build, rechunk, and push the image
-        uses: jharmison-redhat/action-bootc-build@v1
-        with:
-          push: "true"
-          tag: ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Build image
+      run: |
+        podman build -f Containerfile -t localbuild:latest .
+
+    - name: Rechunk image
+      run: |
+        set -e
+        podman run --rm \
+          --mount=type=image,source=localbuild:latest,target=/chunkah \
+          -e CHUNKAH_CONFIG_STR="$(podman inspect localbuild:latest)" \
+          quay.io/jlebon/chunkah build | podman load
+
+    - name: Tag image
+      run: |
+        podman tag localbuild:latest ${{ env.tag }}
+
+    - name: Push image
+      run: |
+        podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
