@@ -1,4 +1,4 @@
-name: build container
+name: rechunk build container
 
 on:
   workflow_dispatch:
