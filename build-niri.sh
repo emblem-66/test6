@@ -16,14 +16,6 @@ systemctl enable tailscaled
 systemctl enable sshd.service
 # Just
 dnf install -y just
-# Niri & DMS
-dnf copr enable -y yalter/niri
-dnf install -y \
-    niri \
-    material-symbols-fonts \
-    adw-gtk3-theme
-# 
-dnf install -y nautilus
 # Flatpak
 dnf install -y flatpak
 # Cockpit
@@ -33,6 +25,7 @@ systemctl enable cockpit.socket
 dnf install -y firewalld
 systemctl enable firewalld.service
 # Greetd
+dnf install -y greetd tuigreet
 systemctl enable greetd
 systemctl set-default graphical.target
 
