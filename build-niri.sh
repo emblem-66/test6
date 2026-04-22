@@ -2,7 +2,7 @@
 
 set -xeuo pipefail
 
-dnf list --installed
+rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort
 
 dnf install -y 'dnf5-command(config-manager)'
 dnf install -y glibc-minimal-langpack glibc-langpack-en glibc-langpack-cs
