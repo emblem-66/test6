@@ -2,6 +2,8 @@
 
 set -xeuo pipefail
 
+dnf list --installed
+
 dnf install -y 'dnf5-command(config-manager)'
 dnf install -y glibc-minimal-langpack glibc-langpack-en glibc-langpack-cs
 dnf remove -y glibc-all-langpacks
@@ -9,11 +11,11 @@ dnf remove -y glibc-all-langpacks
 # Debloat
 dnf remove -y qemu-user-static* sssd*
 # Tailscale
-dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-dnf config-manager setopt tailscale-stable.enabled=0
-dnf install -y --enablerepo='tailscale-stable' tailscale
-systemctl enable tailscaled
-systemctl enable sshd.service
+#dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+#dnf config-manager setopt tailscale-stable.enabled=0
+#dnf install -y --enablerepo='tailscale-stable' tailscale
+#systemctl enable tailscaled
+#systemctl enable sshd.service
 # Just
 dnf install -y just
 # Flatpak
@@ -28,8 +30,6 @@ systemctl enable firewalld.service
 dnf install -y greetd tuigreet
 systemctl enable greetd
 systemctl set-default graphical.target
-
-
 
 dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras,-mesa} 
 #dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
