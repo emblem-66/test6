@@ -1,0 +1,15 @@
+[terminal]
+vt = 1
+
+#[default_session]
+#command = "bash"
+#user = "pc"
+
+#[initial_session]
+#command = "niri-session"
+#user = "pc"
+
+[default_session]
+command = "tuigreet --remember --asterisks --time --greet-align left --greeting '[ OK ] SYSTEM CORE\n[ OK ] SECURITY LAYER\n[LOCK] ACCESS CONTROL\n\nAUTHENTICATE...' --cmd niri-session"
+#command = "tuigreet --remember --cmd niri-session"
+user = "greeter"
