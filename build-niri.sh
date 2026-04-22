@@ -2,7 +2,10 @@
 
 set -xeuo pipefail
 
-rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort
+rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort > packagelist_start.txt
+
+
+
 
 dnf install -y 'dnf5-command(config-manager)'
 dnf install -y glibc-minimal-langpack glibc-langpack-en glibc-langpack-cs
@@ -146,3 +149,7 @@ sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
 echo "%wheel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-passwordless-sudo
 cat /etc/sudoers.d/90-passwordless-sudo
 chmod 0440 /etc/sudoers.d/90-passwordless-sudo
+
+rpm -qa --qf '%{NAME}.%{ARCH}\n' | sort > packagelist_end.txt
+
+comm -13 packagelist_start.txt packagelist_end.txt || true
