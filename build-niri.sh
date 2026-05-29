@@ -18,6 +18,7 @@ dnf remove -y qemu-user-static* sssd*
 #dnf install -y --enablerepo='tailscale-stable' tailscale
 #systemctl enable tailscaled
 #systemctl enable sshd.service
+
 # Just
 dnf install -y just
 # Flatpak
@@ -62,6 +63,9 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1
 #dnf install -y terra-release-mesa
 #dnf install -y terra-release-nvidia
 #dnf install -y terra-release-multimedia
+
+
+dnf install -y ffmpeg
 
 #dnf swap mesa-va-drivers-freeworld mesa-va-drivers
 #dnf install -y mangowm noctalia-shell
