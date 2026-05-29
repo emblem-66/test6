@@ -21,6 +21,15 @@ jobs:
 #      uses: jharmison-redhat/action-bootc-build@v1.0.3
     - name: build
       run: podman build -f Containerfile -t ${{ env.tag }} .
+    - name: chunkah
+      run: |
+        IMG=${{ github.event.repository.name }}:latest
+        podman pull $IMG # image must be available locally
+        export CHUNKAH_CONFIG_STR="$(podman inspect $IMG)"
+        podman run --rm --mount=type=image,src=$IMG,dest=/chunkah \
+          -e CHUNKAH_CONFIG_STR quay.io/coreos/chunkah build \
+          -t localhost/fedora-minimal-chunked:latest | podman load
+
     - name: push
       run: podman push --creds=${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} ${{ env.tag }}
 
