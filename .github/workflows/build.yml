@@ -16,7 +16,7 @@ jobs:
       packages: write
     steps:
     - name: Checkout action
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 #    - name: bootc image builder
 #      uses: jharmison-redhat/action-bootc-build@v1.0.3
 
